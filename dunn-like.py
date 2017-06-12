@@ -38,7 +38,7 @@ y_kmeans = kmeans.fit_predict(dados)
 #    (3) deve-se divir o resultado de (1) por (2).
 #    (4) busca-se o minimo valor de (3).
 #
-#Neste indice, todos os cluster sao comparados entre si.
+#Neste indice, todos os clusters sao comparados entre si.
 
 #Separando cada cluster em uma lista, e inserindo-os em uma quarta lista, pra calcular as distancias euclidianas entre os pontos
 v1=[]
@@ -64,11 +64,10 @@ data.append(v3)
 #A função d calcula a distancia euclidiana entre 2 pontos
 def d (x, y):
     aux = 0
-    
     for i in range(0,4):
         aux += mt.pow(((dados[x,i]) - (dados[y,i])),2)
-        print(mt.sqrt(aux))
     return mt.sqrt(aux)
+
 
 #Buscando a minima distancia entre 2 pontos de 2 clusters diferentes
 def dMin (c1, c2):
@@ -76,7 +75,7 @@ def dMin (c1, c2):
     
     for x in c1:
         for y in c2:
-            aux = d(c1[x],c2[y])
+            aux = d(x,y)
             if aux < min:
                 min = aux 
                 
@@ -88,7 +87,7 @@ def diam (c):
     
     for x in c:
         for y in c:
-            aux = d(c[x],c[y])
+            aux = d(x,y)
             if aux > max:
                 max = aux 
     
