@@ -1,0 +1,8 @@
+Clustering algorithms
+
+- K-means
+- K-medoids
+- Hierarchical clustering
+- Markov clustering: baseado em grafos
+- Affinity propagation
+- DBSCAN

@@ -1,0 +1,27 @@
+Relatorio IC
+
+30/8
+
+- Realizada leitura da sessão 4.3 do livro do Jain & Dubes.
+- Investigação do cophenetic correlation coefficient (CPCC), utilizado para validação de agrupamentos produzidos pelo hierachical clustering, medindo o quanto o dendograma gerado se adequa aos dados originais. Varia entre -1 e 1, porém estudos indicaram q nem valores proximos de 0,9 garatem um bom resultado.
+
+------------------------------------------------------------------------------------
+
+05/09
+
+- Iniciada a implementação do indice Silhueta.
+- Realizada leitura a cerca das métricas euclidiana, manhattan, hamming, similaridade cosseno e proximidade cofenética.
+- Realizada leitura de artigo "What is survival analysis?".
+- Realizada leitura da documentação de scikit-learn Affinity propagation, baseado em grafos, indicado para muitos clusters de tamanhos diferentes.
+
+------------------------------------------------------------------------------------
+
+06/09
+
+- Leitura da documentação da scikit-learn sobre o K-means: utiliza Lloyd's algorithm. É baseado no conceito de diagrmas de Voronoi. Converge em tempo finito. Possui complexidade média de O(k n T) e pior caso O(n^(k+2/p)) sendo n = n_samples, p = n_features
+- Leitura e estudo do código disponível na página de documentacao da scikit "Color Quantization using K-Means"
+	-- O script, pelo o que pude entender converte para valores entre 0-1 cada pixel da imagem, e em seguida transforma em uma matriz (2d array). Em seguida utiliza k means para identificar 64 clusters de cores, numa imagem que possuia originalmente 96615 cores. No script foi definida a funcao 'recreate_image' que recebe os indices do agrupamento, os dados originais e retorna uma matriz de duas dimensoes, que é a imagem recriada. O proposito geral do Kmeans encontra clusters muito semelhantes as cores originais da imagem.
+- Finalizada a implementação do indice Silhueta.
+
+
+

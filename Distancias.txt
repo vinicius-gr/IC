@@ -1,0 +1,8 @@
+Distancias
+
+- Euclidiana
+- Mannhatan
+- Hamming
+- Cophenetic
+- Cosine distance
+- Correlation

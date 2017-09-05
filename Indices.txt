@@ -1,0 +1,8 @@
+Indices
+
+- Homogeinity
+- Completeness
+- V-measure
+- Rand Index
+- Mutual information
+- Silhouette

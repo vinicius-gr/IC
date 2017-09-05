@@ -1,0 +1,4 @@
+Termos e conceitos inportantes
+
+- Principal component analysis
+- Monte Carlo analysis
