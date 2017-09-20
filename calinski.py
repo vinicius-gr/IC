@@ -1,34 +1,21 @@
-# -- coding: utf-8 --
-"""
-Created on Sun Jun 18 23:47:24 2017
+def calinski_harabaz_score(X, labels):
+    X, labels = check_X_y(X, labels)
+    le = LabelEncoder()
+    labels = le.fit_transform(labels)
 
-@author: Vinicius
-"""
+    n_samples, _ = X.shape
+    n_labels = len(le.classes_)
 
-"""
-    O indice Calinski and Harabasz foi publicado em 1972 é
-    baseado nos valores obtidos a partir das somas ssw e
-    ssb. O resultado é obtido através da razão entre a dispersão 
-    interna de cada cluster e a dispersão externa entre os clusters
-"""
+    check_number_of_labels(n_labels, n_samples)
 
-"""
-    Os parametros recebidos nesta implementação são:
-        labels = lista de listas separando cada cluster que contêm os indices usados no dataset
-        dataset = matriz contendo os dados. Cada linha representa um ponto.
-        *nC = numero de clusters
-        *centroids = lista contendo as coordenadas de cada centroide gerado pelo algoritmo
-"""
+    extra_disp, intra_disp = 0., 0.
+    mean = np.mean(X, axis=0)
+    for k in range(n_labels):
+        cluster_k = X[labels == k]
+        mean_k = np.mean(cluster_k, axis=0)
+        extra_disp += len(cluster_k) * np.sum((mean_k - mean) ** 2)
+        intra_disp += np.sum((cluster_k - mean_k) ** 2)
 
-
-from ssw_ssb import ssw, ssb
-
-def calinski (dataset, labels, centroids, nC):
-    
-    numerator = ssb(dataset, labels, centroids)
-    numerator = numerator/(nC-1)
-    
-    denominator = ssw(dataset, labels, centroids, nC)
-    denominator = denominator/(len(dataset)-nC)
-    
-    return (numerator/denominator)
+    return (1. if intra_disp == 0. else
+            extra_disp * (n_samples - n_labels) /
+            (intra_disp * (n_labels - 1.)))

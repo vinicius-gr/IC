@@ -72,25 +72,6 @@ def silhouette_samples(dados, labels, metric='euclidean'):
     # Retorna 0 caso o cluster tenha tamanho 1.
     amostras_silhuetas[nro_pontos_por_label.take(labels) == 1] = 0
     return amostras_silhuetas
-
-
-
-
-    
-from sklearn.cluster import AffinityPropagation
-from sklearn.datasets.samples_generator import make_blobs
-
-centers = [[1, 1], [-1, -1], [1, -1]]
-X, labels_true = make_blobs(n_samples=300, centers=centers, cluster_std=0.5,
-                            random_state=0)
-
-af = AffinityPropagation(preference=-50).fit(X)
-cluster_centers_indices = af.cluster_centers_indices_
-labels = af.labels_
-
-n_clusters_ = len(cluster_centers_indices)
-
-print("Silhouette: %0.3f" % silhouette_index(X, labels))
                 
             
                     
